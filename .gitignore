@@ -1,0 +1,24 @@
+# Build binary
+miniC
+miniC.exe
+*.o
+*.a
+*.out
+
+# Generated Flex/Bison outputs
+src/lex.yy.c
+src/miniC.tab.c
+src/miniC.tab.h
+src/miniC.output
+
+# Generated MIPS assembly
+*.asm
+examples/*.asm
+
+# Editor & OS artifacts
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*~
+*.swp

@@ -1,0 +1,133 @@
+// Fichero: pruebaErrores.miniC
+// Descripcion: Prueba exhaustiva de errores lexicos, sintacticos y semanticos
+//              para el compilador miniC. Los errores estan mas o menos
+//              ordenados por fase de compilacion.
+
+main() {
+    
+    var int a;
+    var int b;
+    var int x;
+    const int CTE = 100;
+
+    // --- Errores Lexicos ---
+
+    // Caracter invalido
+    // const int a = 5 @ 3; // @ no es un simbolo valido
+
+    // Identificador invalido (empieza por numero)
+    // var int 1variable;
+
+    // Identificador demasiado largo (mas de 32 caracteres)
+    // var int identificadorMuyMuyLargoQueSuperaLosTreintaYDosCaracteresPermitidos;
+
+    // Numero mal formado
+    // const int numMalFormado = 123a45;
+
+    // Numero demasiado largo
+    // const int numLargo = 3000000000;
+
+    // Cadena no terminada
+    // print("Esta cadena no se cierra... );
+
+    // Comentario multilinea no terminado
+    // /* Este comentario empieza pero no termina...
+    
+    // --- Errores Sintacticos ---
+
+    // Falta punto y coma al final de declaracion var
+    // var int x
+
+    // Falta punto y coma al final de declaracion const
+    // const int Y = 10
+
+    // Falta punto y coma al final de asignacion
+    // x = 5
+
+    // Falta punto y coma al final de print
+    // print("Hola")
+
+    // Falta punto y coma al final de read
+    // read(x)
+
+    // Falta parentesis de cierre en if
+    // if (x > 5 { print("ok"); }
+
+    // Falta parentesis de apertura en while
+    // while x < 10) { x = x + 1; }
+
+    // Falta llave de cierre en bloque
+    // var int temp;
+    // { temp = 1; print(temp); 
+    // Falta la '}' aqui
+
+    // Else sin if previo
+    // else { print("Error"); }
+
+    // Sintaxis incorrecta en declaracion var (tipo despues)
+    // var x int;
+
+    // Sintaxis incorrecta en declaracion const (falta inicializacion)
+    // const int Z;
+
+    // Sintaxis incorrecta en asignacion (operador incorrecto)
+    // x =+ 5; // Deberia ser x = x + 5 o similar
+
+    // Falta coma en lista de variables var
+    // var int a b;
+
+    // Falta coma en lista de constantes const
+    // const int C1=1 C2=2;
+
+    // Falta coma en lista de print
+    // print("Valor:" x);
+
+    // Falta coma en lista de read
+    // read(a b);
+
+    // Sintaxis incorrecta ternario (faltan :)
+    // x = (a > b ? 1);
+
+    // Sintaxis incorrecta ternario (faltan ?)
+    // x = (a > b : 1 : 0);
+
+    // Sintaxis incorrecta do-while (falta 'do' o 'while' o ';')
+    // do { print(x); } (x < 0); // Falta while
+    // { print(x); } while (x < 0); // Falta do
+    // do { print(x); } while (x < 0) // Falta ;
+    
+    // Sintaxis incorrecta for (faltan parentesis o argumentos)
+    // for i 1 to 5 { print(i); } // Falta parentesis y argumentos correctos
+    // for (i, 1 5) { print(i); } // Falta coma entre los numeros
+    // for (i, 1, 5 print(i); // Faltan parentesis de cierre
+
+    // --- Errores Semanticos ---
+
+    // Se asume que las lineas con errores sintacticos/lexicos anteriores estan comentadas
+    // para poder llegar a la fase semantica.
+
+    // Uso de variable no declarada
+    // a = variableInexistente + 5;
+
+    // Redeclaracion de variable
+    // var int a; // Error: 'a' ya declarada
+
+    // Redeclaracion de constante
+    // const int CTE = 200; // Error: 'CTE' ya declarada
+
+    // Declaracion de variable con nombre de constante
+    // var int CTE; // Error: 'CTE' ya declarada como constante
+
+    // Declaracion de constante con nombre de variable
+    // const int a = 50; // Error: 'a' ya declarada como variable
+
+    // Asignacion a una constante
+    // CTE = 200; // Error: no se puede asignar a una constante
+
+    // Uso de variable no declarada en read
+    // read(variableInexistente);
+
+    // --- Fin de Errores ---
+    print("Si ves esto, muchos errores fueron comentados!\n");
+
+} // Llave de cierre de la funcion principal (necesaria para sintaxis basica)

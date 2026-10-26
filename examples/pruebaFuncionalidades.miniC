@@ -1,0 +1,114 @@
+// Fichero: pruebaFuncionalidades.miniC
+// Descripcion: Prueba exhaustiva de las funcionalidades correctas del lenguaje miniC,
+//              incluyendo las mejoras opcionales y evaluacion de constantes.
+
+main() {
+    // Comentario de una linea
+
+    /*
+       Comentario
+       multilinea.
+    */
+
+    // --- Declaraciones ---
+    const int MAX_VAL = 100;                  // Constante simple
+    const int MIN_VAL = -5;
+    const int RESULTADO_CALCULO = (10 + 5) * 2 / 3; // Evaluacion en tiempo de compilacion (esperado: 10)
+    const int VALOR_VERDADERO = 1;
+    const int VALOR_FALSO = 0;
+
+    var int i, j, k;                          // Variables sin inicializar (valor implicito 0)
+    var int contador;
+    var int entradaUsuario;
+    var int limiteSuperior;
+    var int indiceFor;
+
+    // --- Inicializacion y Asignaciones ---
+    i = 10;
+    j = RESULTADO_CALCULO; // j deberia ser 10
+    k = i + j - 5;         // k deberia ser 10 + 10 - 5 = 15
+    contador = 0;
+    limiteSuperior = 5;
+
+    // --- Salida (print) ---
+    print("--- Inicio de Pruebas ---\n");
+    print("Constantes: MAX_VAL=", MAX_VAL, ", MIN_VAL=", MIN_VAL, ", RESULTADO_CALCULO=", RESULTADO_CALCULO, "\n");
+    print("Variables iniciales: i=", i, ", j=", j, ", k=", k, "\n");
+    print("Cadena con escapes: \"Hola\tMundo\"\n"); // Tabulador y comillas escapadas
+
+    // --- Expresiones Aritmeticas y Ternario ---
+    k = (i * j / 2) + (k > 10 ? 100 : -100); // k = (10 * 10 / 2) + 100 = 50 + 100 = 150 (usando relacional >)
+    print("Calculo complejo con ternario y relacional (>): k=", k, "\n");
+
+    // --- Sentencia if / else if / else ---
+    print("--- Pruebas if/else --- \n");
+    if (i > 5) { // Uso de relacional >
+        print("i (", i, ") es mayor que 5\n");
+    } else {
+        print("i (", i, ") NO es mayor que 5 (ERROR LOGICO)\n");
+    }
+
+    if (j == RESULTADO_CALCULO) { // Uso de relacional ==
+        print("j (", j, ") es igual a RESULTADO_CALCULO (", RESULTADO_CALCULO, ")\n");
+    } else {
+        print("j (", j, ") NO es igual a RESULTADO_CALCULO (ERROR LOGICO)\n");
+    }
+
+    if (MIN_VAL < 0) { // Uso de relacional <
+        if (k != 150) { // Uso de relacional !=
+            print("k (", k, ") es distinto de 150 (ERROR LOGICO)\n");
+        } else {
+            print("MIN_VAL (", MIN_VAL, ") es negativo y k (", k, ") es 150\n");
+        }
+    }
+
+    if (VALOR_FALSO) {
+        print("Esto no deberia imprimirse (if con 0)\n");
+    } else if (VALOR_VERDADERO) {
+        print("Esto SI deberia imprimirse (else if con 1)\n");
+    } else {
+        print("Esto tampoco deberia imprimirse (else final)\n");
+    }
+
+    // --- Sentencia while ---
+    print("--- Prueba while --- \n");
+    contador = 3;
+    while (contador > 0) { // Uso de relacional >
+        print("  Contador while: ", contador, "\n");
+        contador = contador - 1;
+    }
+
+    // --- Sentencia do-while (Mejora 1) ---
+    print("--- Prueba do-while --- \n");
+    contador = 0; // Se ejecuta al menos una vez
+    do {
+        print("  Contador do-while: ", contador, "\n");
+        contador = contador + 1;
+    } while (contador < 3); // Uso de relacional <
+
+    // --- Sentencia for (Mejora 3) ---
+    // Asumiendo sintaxis: for (var, inicio, fin) { ... }
+    print("--- Prueba for --- \n");
+    for (indiceFor, 1, limiteSuperior) { // limiteSuperior = 5
+        print("  Iteracion for: indiceFor = ", indiceFor, "\n");
+    }
+    // Se espera que imprima de 1 a 5
+
+    // --- Entrada (read) ---
+    print("--- Prueba read --- \n");
+    print("Introduce un numero entero: ");
+    read(entradaUsuario); // Lee un valor para entradaUsuario
+    print("Has introducido: ", entradaUsuario, "\n");
+
+    // --- Uso de relacionales combinados y asignaciones ---
+    print("--- Pruebas relacionales combinadas <=, >= --- \n");
+    if (entradaUsuario >= MIN_VAL) {
+        print("El numero introducido (", entradaUsuario, ") es mayor o igual que MIN_VAL (", MIN_VAL, ")\n");
+    }
+    if (entradaUsuario <= MAX_VAL) {
+        print("El numero introducido (", entradaUsuario, ") es menor o igual que MAX_VAL (", MAX_VAL, ")\n");
+    }
+
+    // --- Final ---
+    print("--- Fin de Pruebas ---\n");
+}
