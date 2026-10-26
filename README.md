@@ -122,5 +122,5 @@ make clean
 
 ## Authors
 
-- **Sergio Lozano**
+- **Sergio Lozano** ([@Gert2198](https://github.com/Gert2198))
 - **Pedro Villa** ([@pedro-villa](https://github.com/pedro-villa))
